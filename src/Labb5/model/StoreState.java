@@ -88,28 +88,48 @@ public class StoreState extends State{
 	
 	/**
 	 * 
-	 * @return The 
+	 * @return The amount of registers in use.
 	 */
 	public int getRegsInUse() {
 		return cashier.getUsed();
 	}
 
+	/**
+	 * 
+	 * @return The total amount of registers
+	 */
 	public int getAmOfRegs() {
 		return totAmOfRegs;
 	}
-
+	
+	/**
+	 * 
+	 * @return Who is in line.
+	 */
 	public String getQueue() {
 		return inLine.toString();
 	}
 
+	/**
+	 * 
+	 * @return Lambda.
+	 */
 	public double getLambda() {
 		return lambda;
 	}
 
+	/**
+	 * 
+	 * @return The Array P.
+	 */
 	public double[] getP(){
 		return P;
 	}
 
+	/**
+	 * 
+	 * @return The Array K.
+	 */
 	public double[] getK(){
 		return K;
 	}
@@ -212,59 +232,112 @@ public class StoreState extends State{
 		return isOpen;
 	}
 	
+	/**
+	 * 
+	 * @return How many customers exists. 
+	 */
 	public int getCustomerIDSize(){
 		return CustomerID.size();
 	}
 	
+	/**
+	 * 
+	 * @return The ArrayList with the IDs.
+	 */
 	public ArrayList<Customer> getCustomerID(){
 		return CustomerID;
 	}
 
+	/**
+	 * Opens the store.
+	 */
 	public void openStore() {
 		isOpen = true;
 	}
 	
+	/**
+	 * Close the store. 
+	 */
 	public void closeStore() {
 		isOpen = false;
 	}
 	
+	/**
+	 * Notify the observer that changes have been made.
+	 */
 	public void update() {
 		setChanged();
 		notifyObservers();
 	}
 
+	/**
+	 * Increases the time registers have been free.
+	 * @param time
+	 */
 	public void increasRegFreeTime(double time) {
 		cashier.increseFreeCashierTime(time);
 	}
 
+	/**
+	 * Set the ID of the active customer.
+	 * @param ID
+	 */
 	public void setCurrentID(String ID) {
 		this.currentID = ID;
 	}
 	
+	/**
+	 * 
+	 * @return The ID of the active customer.
+	 */
 	public String getCurrentID() {
 		return currentID;
 	}
 
+	/**
+	 * Increases the time there have been people in line.
+	 * @param time
+	 */
 	public void increasInLineTime(double time) {
 		inLine.increasInLineTime(time);
 	}
 	
+	/**
+	 * 
+	 * @return The time people have been in line.
+	 */
 	public double getInLineTime() {
 		return inLine.getInLineTime();
 	}
 	
+	/**
+	 * 
+	 * @return If there is a free register.
+	 */
 	public boolean FreeRegs() {
 		return cashier.getFreeRegs();
 	}
 	
+	/**
+	 * Adds a customer in line.
+	 * @param ID
+	 */
 	public void addInLine(int ID) {
 		inLine.add(ID);
 	}
 	
+	/**
+	 * 
+	 * @return The time the registers have been free
+	 */
 	public double getFreeTimeRegs(){
 		return cashier.getFreeTime();
 	}
 	
+	/**
+	 * 
+	 * @return The total of people that have been in line.
+	 */
 	public int getPeopleInLineTotal() {
 		return inLine.getPeopleInLineTotal();
 	}
