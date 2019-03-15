@@ -8,16 +8,6 @@ import Labb5.simulator.EventQueue;
 
 public class ArrivalEvent extends Event{
 
-	
-	/* Är snabbköpet öppet ? 
-	 * Är det fullt? 
-	 * skapa en ny kund.
-	 * skapa plockhändelse
-	 * * Hur lång tid tar det att ploka varor?
-	 * om öppet skape en ny ankomsthändelse
-	 * 
-	 * */
-
 	private StoreState storeState;
 	/**
 	 * 
@@ -31,7 +21,7 @@ public class ArrivalEvent extends Event{
 
 	}
 /**
- * 
+ * Creates a new arrival. Checks if the store is open and if there is room for the new customer.
  */
 	public void eventTriggered(){
 		if(storeState.getIsOpen()) {
@@ -47,27 +37,29 @@ public class ArrivalEvent extends Event{
 			
 			storeState.update();
 			//-------------------------------------------------------------------
+			// change the rest of the variables.
 			storeState.setTime(getTimeStamp());
 			storeState.increaseTotalAmountOfCustomers();
 			
+			// Is there still room for a new customer in the store?
 			if (storeState.getPeopleInStore() < storeState.getMaxPeople()) {
 				storeState.increasPeopleInStore();
+				// Make a timeStamp for a new shoppingEvent.
 				double timeStamp = storeState.getTime() + customer.getPickTime();
+				// Make a new ShoppingEvent
 				super.getQueue().addEvent(new ShoppingEvent(storeState, super.getQueue(), timeStamp), customer.getID());
 			}
 			else {
 				storeState.increaseMissed();
 			}
-
+			// Make a new ArrivalEvent and add it to the EventQueue.
 			ExponentialRandomStream Time = new ExponentialRandomStream(storeState.getLambda(), storeState.getSeed()); 
 			double arrTime = storeState.getTime() + Time.next();
 			super.getQueue().addEvent(new ArrivalEvent(storeState,super.getQueue(),arrTime));
-			//UniformedRandomStream payStream = new UniformedRandomStream(K[0], K[1], seed);
-			//SortedSequence.add(new ArrivalEvent(item), arrTime);
+
 		}
 		else {
 			storeState.increaseTotalAmountOfCustomers();
 		}
 	}
-
 }

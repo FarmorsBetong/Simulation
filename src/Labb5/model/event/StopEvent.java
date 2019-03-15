@@ -8,13 +8,23 @@ public class StopEvent extends Event{
 	SimView view;
 
 	private StoreState storeState;
+/**
+ * 
+ * @param storeState
+ * @param queue
+ * @param time
+ * @param view
+ */
 	public StopEvent(StoreState storeState, EventQueue queue, double time, SimView view) {
 		super(queue, time);
 		this.storeState = storeState;
 		this.view = view;
 	}
 
-	/*Lägg i nödbromsen*/
+	/**
+	 *
+	 * Lägg i nödbromsen
+	 */
 	public void eventTriggered() {
 		storeState.setEventName("Stop");
 		storeState.update();

@@ -4,21 +4,22 @@ import Labb5.model.*;
 import Labb5.simulator.*;
 
 class ShoppingEvent extends Event{
-	
-/*
- * Hur lång tid tar det att betala varor?
- * skapa en betalhändelse.
- * om det finns lediga kassor gå direkt till betalhändelse.
- * annars ställs i FIFO kö
- * */
+
 	private StoreState storeState;
-	
+	/**
+	 * 
+	 * @param storeState
+	 * @param queue
+	 * @param time
+	 */
 	public ShoppingEvent(StoreState storeState, EventQueue queue, double time) {
 		super(queue,time);
 		this.storeState = storeState;
 
 	}
-
+/**
+ * Checks if there is a free register. If so, make a new PaymentEvent. Else, put customer in the FIFO queue.
+ */
 	public void eventTriggered() {
 		// Update time, current ID, time registers have been free and time there have been people in line.
 		storeState.setEventName("Shopping: ");
