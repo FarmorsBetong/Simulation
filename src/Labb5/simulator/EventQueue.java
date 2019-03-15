@@ -10,7 +10,6 @@ public class EventQueue {
 		Node(Event event, int ID) {
 			this.event = event;
 			this.ID = ID;
-
 		}
 
 		Node(Event event) {
