@@ -22,7 +22,7 @@ public class ClosingEvent extends Event{
 	public void eventTriggered() {
 		// Set all pre update variables.
 		storeState.setEventName("Closing ");
-		storeState.setCurrentID("---");
+		storeState.setCurrentID("--");
 		storeState.setCurrentTime(super.getTimeStamp());
 		// The time registers have been free since last timeStamp.
 		double freeRegTime = super.getTimeStamp() - storeState.getTime();

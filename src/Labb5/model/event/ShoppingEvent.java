@@ -24,6 +24,9 @@ class ShoppingEvent extends Event{
 		storeState.setEventName("Shopping: ");
 		storeState.setCurrentTime(super.getTimeStamp());
 		storeState.setCurrentID(Integer.toString(super.getQueue().getID()));
+		
+		//System.out.println("------------\n"+ super.getQueue().getID() +   " \n------------");
+		
 		double freeRegTime = super.getTimeStamp() - storeState.getTime();
 		storeState.increasRegFreeTime(freeRegTime);
 		double peopleInLineTime = super.getTimeStamp() - storeState.getTime();
@@ -36,15 +39,11 @@ class ShoppingEvent extends Event{
 		double timeStamp = storeState.getTime() + storeState.getCustomerPayTime(super.getQueue().getID());
 		// Checks if there is someone in line. True = add customer to the line, False = go to the register.
 		if(storeState.FreeRegs()) {
+			storeState.increasRegsInUse();
 			super.getQueue().addEvent(new PaymentEvent(storeState,super.getQueue(),timeStamp),super.getQueue().getID());
 		}else {
 			storeState.addInLine(super.getQueue().getID());
-		}
-		
-		
-		
-		
-	
+		}	
 	}
 
 }

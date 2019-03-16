@@ -39,20 +39,20 @@ public class SimView implements Observer {
 		System.out.println("RESULTAT");
 		System.out.println("========");
 		System.out.println("1) av " + currentState.getTotalOfCustormers() + " kunder handlade "
-				+ String.valueOf(currentState.getTotalOfCustormers() - currentState.getMissed()) + " medan"
+				+ String.valueOf(currentState.getTotalOfCustormers() - currentState.getMissed()) + " medan "
 				+ currentState.getMissed() + " missades.");
 		System.out.println("2) Totalt tid " + currentState.getAmOfRegs() + " kassor har varit" + " lediga: "
-				+ currentState.getFreeTimeRegs() + " te.");
+				+ String.format("%.2f",currentState.getFreeTimeRegs()) + " te.");
 		double snittTid = currentState.getFreeTimeRegs() / currentState.getAmOfRegs();
-		double percentTid = snittTid / currentState.getTime();
-		System.out.println("Genomsnittlig ledig kassatid: " + snittTid + "(dvs " + percentTid
+		double percentTid = (snittTid / currentState.getTime())*100;
+		System.out.println("Genomsnittlig ledig kassatid: " + String.format("%.2f",snittTid) + " te." + "(dvs " +  String.format("%.2f",percentTid)
 				+ "% av tiden från öppning till sista kunden betalat).");
 
 		int totAmQueuedPeeps = currentState.getPeopleInLineTotal();
 		double snittKöTid = currentState.getInLineTime() / totAmQueuedPeeps;
 		System.out.println("3) Total tid " + totAmQueuedPeeps + " kunder" + " tvingats köa: "
-				+ currentState.getInLineTime() + " te.");
-		System.out.print("Genomsnittlig kötid: " + snittKöTid + " te.");
+				+ String.format("%.2f",currentState.getInLineTime()) + " te.");
+		System.out.print("Genomsnittlig kötid: " + String.format("%.2f",snittKöTid) + " te.");
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class SimView implements Observer {
 		String doneCusts = String.valueOf(currentState.getTotalOfCustormers() - currentState.getPeopleInStore()) + "  ";
 		String missedCusts = String.valueOf(currentState.getMissed()) + "   ";
 		String totAmOfQueuedPeeps = String.valueOf(currentState.getPeopleInLineTotal()) + "   ";
-		String timeQueued = String.valueOf(currentState.getInLineTime()) + "  ";
+		String timeQueued = String.valueOf(String.format("%.2f",currentState.getInLineTime())) + "  ";
 		String inLine = String.valueOf(currentState.getQueueSize()) + "    ";
 		String wholeQueue = currentState.getQueue() + " ";
 

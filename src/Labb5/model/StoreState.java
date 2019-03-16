@@ -388,4 +388,16 @@ public class StoreState extends State{
 		return currentTime;
 	}
 
+	/**
+	 * Increases the amount of registers in use.
+	 */
+		public void increasRegsInUse() {
+			cashier.increasRegsInUse();
+		}
+	/**
+	 * Decreases the amount of registers in use. 
+	 */
+		public void decreasRegsInUse() {
+			cashier.decreasRegsInUse();
+		}
 }

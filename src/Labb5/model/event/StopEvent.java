@@ -29,7 +29,7 @@ public class StopEvent extends Event{
 		storeState.setEventName("Stop");
 		storeState.setCurrentTime(super.getTimeStamp());
 		storeState.update();
-		storeState.setTime(getTimeStamp());
+		//storeState.setTime(getTimeStamp());
 
 		//prints the result before shutting down.
 		view.printResult();

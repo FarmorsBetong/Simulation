@@ -42,11 +42,13 @@ public class PaymentEvent extends Event{
 					storeState.getCustomerPayTime(storeState.getNextInLine()));
 
 			//Adds the event to EventQueue.
-			getQueue().addEvent(EventPay, storeState.getNextInLine());
+			super.getQueue().addEvent(EventPay, storeState.getNextInLine());
 
 			//Removes the one who's first in the queue.
 			storeState.removeInLine();
 
+		}else {
+			storeState.decreasRegsInUse();
 		}
 		
 	}
