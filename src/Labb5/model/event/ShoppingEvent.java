@@ -15,7 +15,6 @@ class ShoppingEvent extends Event{
 	public ShoppingEvent(StoreState storeState, EventQueue queue, double time) {
 		super(queue,time);
 		this.storeState = storeState;
-
 	}
 /**
  * Checks if there is a free register. If so, make a new PaymentEvent. Else, put customer in the FIFO queue.

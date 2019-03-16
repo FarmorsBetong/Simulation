@@ -1,5 +1,13 @@
 package Labb5.simulator;
 
+/**
+ * 
+ * @author johlax-8
+ *  A queue that keeps track of general events from the class
+ *  "Event" in this projekt
+ *
+ */
+
 public class EventQueue {
 
 	private class Node {
@@ -10,6 +18,7 @@ public class EventQueue {
 		Node(Event event, int ID) {
 			this.event = event;
 			this.ID = ID;
+
 		}
 
 		Node(Event event) {
@@ -26,61 +35,77 @@ public class EventQueue {
 	 */
 	public EventQueue() {
 		header = new Node(null, -1);
+		header.next = null;
 		this.last = header;
 	}
 
 	/**
-	 * L�gger till ett event i k�n, sorteras automatiskt
+	 * Lï¿½gger till ett event i kï¿½n, sorteras automatiskt
 	 * 
-	 * @param event The event.
-	 * @param ID    Which costumer the event is for.
+	 * @param event Eventen som skall lï¿½ggas kï¿½n
+	 * @param ID    Vilken kund eventet ï¿½r kopplat till
 	 */
 	public void addEvent(Event event, int ID) {
 
-		
-		Node after = header.next;
+		Node current = header;
 		Node prev = null;
-		
-		if (after == null) {
-			last.next = new Node(event);
-			last = last.next;
-		}
-		
-		while (event.getTimeStamp() > after.event.getTimeStamp()) {
-		
-			prev = after;
-			after = after.next;
-		}
 
-		prev.next = new Node(event, ID);
-		prev.next.next = after;
+		while (true) {
+			// nullcheck
+			if (current.next == null) {
+				current.next = new Node(event, ID);
+				last = current.next;
+				System.out.println("HEJ");
+				return;
+			}
+
+			// flyttar pekarna ett steg frammåt
+			prev = current;
+			current = current.next;
+
+			// jämför tiderna
+			if (event.getTimeStamp() < current.event.getTimeStamp()) {
+				prev.next = new Node(event, ID);
+				prev.next.next = current;
+				return;
+			}
+
+		}
 
 	}
 
 	public void addEvent(Event event) {
-//		System.out.println("HEJ");
-		Node after = header.next;
+
+		Node current = header;
 		Node prev = null;
 
-		if (after == null) {
-			last.next = new Node(event);
-			last = last.next;
+		while (true) {
+			// nullcheck
+			if (current.next == null) {
+				current.next = new Node(event);
+				last = current.next;
+				System.out.println("HEJ");
+				return;
+			}
+
+			// flyttar pekarna ett steg frammåt
+			prev = current;
+			current = current.next;
+
+			// jämför tiderna
+			if (event.getTimeStamp() < current.event.getTimeStamp()) {
+				prev.next = new Node(event);
+				prev.next.next = current;
+				return;
+			}
+
 		}
-
-		while (event.getTimeStamp() > after.event.getTimeStamp()) {
-
-			prev = after;
-			after = after.next;
-		}
-
-		prev.next = new Node(event);
-		prev.next.next = after;
 
 	}
 
 	/**
 	 * 
-	 * @return Kund-ID f�r n�sta event
+	 * @return Kund-ID för nästa event
 	 */
 	public int getID() {
 		try {
@@ -90,6 +115,12 @@ public class EventQueue {
 		}
 	}
 
+	/**
+	 * Bör kanske inte använda denna method, lite bökig
+	 * 
+	 * @param index det indexet i kön man vill nå
+	 * @return en Node med event, och möjligen ID
+	 */
 	public Node getEvent(int index) {
 		Node node = header;
 		Node pointer = header.next;
@@ -104,9 +135,9 @@ public class EventQueue {
 	}
 
 	/**
-	 * Returnerar och tar bort nästa event i k�n
+	 * Returnerar och tar bort nästa event i kön
 	 * 
-	 * @return N�sta event i k�n
+	 * @return Nästa event i kön
 	 */
 	public Event getNextEvent() {
 		Event next = header.next.event;

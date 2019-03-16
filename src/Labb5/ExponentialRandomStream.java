@@ -30,7 +30,7 @@ public class ExponentialRandomStream {
 	   * @return A random double that is divided with lambda.
 	   */
 	public double next() {
-	  	return Math.log(rand.nextDouble())/lambda;
+	  	return -Math.log(rand.nextDouble())/lambda;
 	}
 }
 

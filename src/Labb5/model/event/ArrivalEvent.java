@@ -26,7 +26,6 @@ public class ArrivalEvent extends Event{
 	public void eventTriggered(){
 		if(storeState.getIsOpen()) {
 			// Set all pre update variables.
-			storeState.setEventName("Arrival");
 			Customer customer = new Customer(storeState.getCustomerIDSize(), storeState.getP(), storeState.getK(),  storeState.getSeed());
 			storeState.getCustomerID().add(customer);
 			double freeRegTime = super.getTimeStamp() - storeState.getTime();
