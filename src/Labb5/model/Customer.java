@@ -1,7 +1,4 @@
 package Labb5.model;
-
-
-import Labb5.UniformedRandomStream;
 /**
  * 
  * @author wesjon-5
@@ -19,14 +16,13 @@ public class Customer {
  * @param K
  * @param seed
  */
-	public Customer(int ID, double P[], double K[], long seed) {
+	public Customer(int ID, StoreState storeState) {
 		//Makes references to the uniformed class to be able to generate streams.
-		UniformedRandomStream pickSteam = new UniformedRandomStream(P[0], P[1], seed);
-		UniformedRandomStream payStream = new UniformedRandomStream(K[0], K[1], seed);
+		
 		
 		this.ID = ID;
-		this.pickTime = pickSteam.next();
-		this.payTime = payStream.next();
+		this.pickTime = storeState.getNextPickTime();
+		this.payTime = storeState.getNextPayTime();
 		
 	}
 /**

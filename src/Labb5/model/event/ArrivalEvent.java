@@ -1,13 +1,11 @@
 package Labb5.model.event;
 
-import Labb5.ExponentialRandomStream;
 import Labb5.model.Customer;
 import Labb5.model.StoreState;
 import Labb5.simulator.Event;
 import Labb5.simulator.EventQueue;
 
 public class ArrivalEvent extends Event{
-
 	private StoreState storeState;
 	/**
 	 * 
@@ -24,9 +22,12 @@ public class ArrivalEvent extends Event{
  * Creates a new arrival. Checks if the store is open and if there is room for the new customer.
  */
 	public void eventTriggered(){
+		//System.out.println("Arrival Time: " + super.getTimeStamp() );
 		if(storeState.getIsOpen()) {
 			// Set all pre update variables.
-			Customer customer = new Customer(storeState.getCustomerIDSize(), storeState.getP(), storeState.getK(),  storeState.getSeed());
+			storeState.setEventName("Arrival ");
+			storeState.setCurrentTime(super.getTimeStamp());
+			Customer customer = new Customer(storeState.getCustomerIDSize(), storeState);
 			storeState.getCustomerID().add(customer);
 			double freeRegTime = super.getTimeStamp() - storeState.getTime();
 			storeState.increasRegFreeTime(freeRegTime);
@@ -52,13 +53,12 @@ public class ArrivalEvent extends Event{
 				storeState.increaseMissed();
 			}
 			// Make a new ArrivalEvent and add it to the EventQueue.
-			ExponentialRandomStream Time = new ExponentialRandomStream(storeState.getLambda(), storeState.getSeed()); 
-			double arrTime = storeState.getTime() + Time.next();
-			super.getQueue().addEvent(new ArrivalEvent(storeState,super.getQueue(),arrTime));
+			double arrTime = storeState.getTime() + storeState.getNextExponetialTime();
+			super.getQueue().addEvent(new ArrivalEvent(storeState, super.getQueue(), arrTime));
 
 		}
 		else {
-			storeState.increaseTotalAmountOfCustomers();
+			//storeState.increaseTotalAmountOfCustomers();
 		}
 	}
 }

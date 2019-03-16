@@ -1,7 +1,5 @@
 package Labb5.model.event;
 
-import Labb5.ExponentialRandomStream;
-
 import Labb5.model.StoreState;
 import Labb5.simulator.*;
 public class StartEvent extends Event{
@@ -17,7 +15,6 @@ public class StartEvent extends Event{
 	}*/
 	private StoreState storeState;
 	private SimView view;
-
 /**
  * 
  * @param storeState
@@ -37,13 +34,14 @@ public class StartEvent extends Event{
 		// Pre update changes.
 		view.printStartup();
 		storeState.setEventName("Start");
+		storeState.setCurrentTime(super.getTimeStamp());
 		storeState.update();
 		//After update changes.
 		storeState.deactivateEmergencyStop();
 		storeState.openStore();
 		// The timeStamp for when the first arrival happens.
-		ExponentialRandomStream Time = new ExponentialRandomStream(storeState.getLambda(), storeState.getSeed());
-		double arrTime =storeState.getTime() + Time.next();
+		
+		double arrTime = storeState.getTime() + storeState.getNextExponetialTime();
 		super.getQueue().addEvent(new ArrivalEvent(storeState, super.getQueue(), arrTime));
 	}
 

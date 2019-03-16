@@ -27,6 +27,7 @@ public class StopEvent extends Event{
 	 */
 	public void eventTriggered() {
 		storeState.setEventName("Stop");
+		storeState.setCurrentTime(super.getTimeStamp());
 		storeState.update();
 		storeState.setTime(getTimeStamp());
 

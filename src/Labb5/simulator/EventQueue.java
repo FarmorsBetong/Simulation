@@ -2,9 +2,8 @@ package Labb5.simulator;
 
 /**
  * 
- * @author johlax-8
- *  A queue that keeps track of general events from the class
- *  "Event" in this projekt
+ * @author johlax-8 A queue that keeps track of general events from the class
+ *         "Event" in this projekt
  *
  */
 
@@ -55,7 +54,6 @@ public class EventQueue {
 			if (current.next == null) {
 				current.next = new Node(event, ID);
 				last = current.next;
-				System.out.println("HEJ");
 				return;
 			}
 
@@ -84,7 +82,7 @@ public class EventQueue {
 			if (current.next == null) {
 				current.next = new Node(event);
 				last = current.next;
-				System.out.println("HEJ");
+
 				return;
 			}
 
@@ -94,6 +92,7 @@ public class EventQueue {
 
 			// jämför tiderna
 			if (event.getTimeStamp() < current.event.getTimeStamp()) {
+
 				prev.next = new Node(event);
 				prev.next.next = current;
 				return;
@@ -137,9 +136,10 @@ public class EventQueue {
 	/**
 	 * Returnerar och tar bort nästa event i kön
 	 * 
-	 * @return Nästa event i kön
+	 * @return Nästa event i kön, returnerar null ifall kön är tom
 	 */
-	public Event getNextEvent() {
+	public Event getNextEvent() throws NullPointerException{
+		
 		Event next = header.next.event;
 		removeNext();
 		return next;

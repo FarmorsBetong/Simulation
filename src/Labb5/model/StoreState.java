@@ -2,6 +2,8 @@ package Labb5.model;
 
 import java.util.ArrayList;
 
+import Labb5.ExponentialRandomStream;
+import Labb5.UniformedRandomStream;
 import Labb5.simulator.State;
 
 /**
@@ -25,8 +27,11 @@ public class StoreState extends State{
 	private boolean isOpen = false;
 	private Registers cashier;
 	private String currentID = "";
+	private double currentTime = 0.0;
 	private int totAmOfRegs;
-
+	private ExponentialRandomStream ArrivalTime;
+	private UniformedRandomStream PickTime;
+	private UniformedRandomStream PayTime;
 	/**
 	 * @param cashiers How many cashiers is there in the store.
 	 * @param maxPeople Max amount of people in the store.
@@ -44,6 +49,9 @@ public class StoreState extends State{
 		this.P = P;
 		this.K = K;
 		this.seed = seed;
+		this.ArrivalTime = new ExponentialRandomStream(getLambda(), getSeed());
+		this.PickTime = new UniformedRandomStream(getP()[0], getP()[1], getSeed());
+		this.PayTime = new UniformedRandomStream(getK()[0], getK()[1], getSeed());
 
 	}
 
@@ -340,6 +348,44 @@ public class StoreState extends State{
 	 */
 	public int getPeopleInLineTotal() {
 		return inLine.getPeopleInLineTotal();
+	}
+	
+	/**
+	 * 
+	 * @return The time addition to next ArrivalEvent.
+	 */
+	public double getNextExponetialTime() {
+		return ArrivalTime.next();
+	}
+	
+	/**
+	 * 
+	 * @return The time addition to next ShoppingEvent.
+	 */
+	protected double getNextPickTime() {
+		return PickTime.next();
+	}
+	
+	/**
+	 * 
+	 * @return The time addition to next PayEvent.
+	 */
+	protected double getNextPayTime() {
+		return PayTime.next();
+	}
+	/**
+	 * Change current time.
+	 * @param time
+	 */
+	public void setCurrentTime(double time) {
+		currentTime = time;
+	}
+	/**
+	 * 
+	 * @return get the current time.
+	 */
+	public double getCurrentTime() {
+		return currentTime;
 	}
 
 }

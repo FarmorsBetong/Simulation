@@ -22,6 +22,7 @@ class ShoppingEvent extends Event{
 	public void eventTriggered() {
 		// Update time, current ID, time registers have been free and time there have been people in line.
 		storeState.setEventName("Shopping: ");
+		storeState.setCurrentTime(super.getTimeStamp());
 		storeState.setCurrentID(Integer.toString(super.getQueue().getID()));
 		double freeRegTime = super.getTimeStamp() - storeState.getTime();
 		storeState.increasRegFreeTime(freeRegTime);

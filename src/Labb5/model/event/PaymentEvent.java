@@ -19,7 +19,8 @@ public class PaymentEvent extends Event{
 	 *TODO om det är någon i FIFO kön ta den personen.
 	 * */
 	public void eventTriggered() {
-		storeState.setEventName("Shopping: ");
+		storeState.setEventName("Payment: ");
+		storeState.setCurrentTime(super.getTimeStamp());
 		storeState.setCurrentID(Integer.toString(super.getQueue().getID()));
 		double freeRegTime = super.getTimeStamp() - storeState.getTime();
 		storeState.increasRegFreeTime(freeRegTime);
@@ -41,7 +42,7 @@ public class PaymentEvent extends Event{
 					storeState.getCustomerPayTime(storeState.getNextInLine()));
 
 			//Adds the event to EventQueue.
-			getQueue().addEvent(EventPay);
+			getQueue().addEvent(EventPay, storeState.getNextInLine());
 
 			//Removes the one who's first in the queue.
 			storeState.removeInLine();
