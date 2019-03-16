@@ -30,7 +30,8 @@ public class SimView implements Observer {
 
 		System.out.println("FÖRLOPP");
 		System.out.println("=======");
-		System.out.println("  Tid    Händelse    Kund    ?    led    ledT    I    $    :-(    köat    köT    köar    [Kassakö..]");
+		System.out.println(
+				"  Tid    Händelse    Kund    ?    led    ledT    I    $    :-(    köat    köT    köar    [Kassakö..]");
 
 	}
 
@@ -57,25 +58,22 @@ public class SimView implements Observer {
 	@Override
 	public void update(Observable arg0, Object f) {
 		String time = String.valueOf(String.format("%.2f", currentState.getCurrentTime())) + "    ";
-		
-		
+
 		String event;
-		
-		if (currentState.getEventName()=="Arrival") {
-			 event = "Arrival   ";
-		}
-		else if (currentState.getEventName()=="Shopping") {
-			event = "Shopping";
-		}
-		else if (currentState.getEventName()=="Payment") {
-			event = "Payment";
-		}
-		else {
+
+		if (currentState.getEventName() == "Arrival ") {
+			event = "Arrival     ";
+		} else if (currentState.getEventName() == "Shopping: ") {
+			event = "Shopping    ";
+		} else if (currentState.getEventName() == "Payment: ") {
+			event = "Payment     ";
+		} else if (currentState.getEventName() == "Closing ") {
+			event = "Closing   ";
+		} else {
 			event = currentState.getEventName();
 		}
-		
-		
-		String custNum = String.valueOf("   "+currentState.getCurrentID() + "  ");
+
+		String custNum = String.valueOf(currentState.getCurrentID() + "  ");
 		String open = (currentState.getIsOpen()) ? "Ö  " : "S  ";
 		String amOfFreeRegs = String.valueOf(currentState.getAmOfRegs() - currentState.getRegsInUse()) + "  ";
 		String sumTimeFreeRegs = String.valueOf(String.format("%.2f", currentState.getFreeTimeRegs())) + " ";
@@ -87,14 +85,14 @@ public class SimView implements Observer {
 		String inLine = String.valueOf(currentState.getQueueSize()) + "    ";
 		String wholeQueue = currentState.getQueue() + " ";
 
-		String infoRow; 
-		if (event == "Start" || event == "Closing" || event == "Stop") {
+		String infoRow;
+		if (event == "Start" || event == "Stop") {
 			infoRow = time + event;
 		} else {
 			infoRow = time + event + custNum + open + amOfFreeRegs + sumTimeFreeRegs + amOfCusts + doneCusts
 					+ missedCusts + totAmOfQueuedPeeps + timeQueued + inLine + wholeQueue;
 		}
-		
+
 		System.out.println("  " + infoRow);
 	}
 

@@ -23,21 +23,22 @@ public class ArrivalEvent extends Event{
  */
 	public void eventTriggered(){
 		//System.out.println("Arrival Time: " + super.getTimeStamp() );
+		// Set all pre update variables.
+					storeState.setEventName("Arrival ");
+					storeState.setCurrentTime(super.getTimeStamp());
+					Customer customer = new Customer(storeState.getCustomerIDSize(), storeState);
+					storeState.getCustomerID().add(customer);
+					double freeRegTime = super.getTimeStamp() - storeState.getTime();
+					storeState.increasRegFreeTime(freeRegTime);
+					double peopleInLineTime = super.getTimeStamp() - storeState.getTime();
+					storeState.increasInLineTime(peopleInLineTime);
+					storeState.setCurrentID(Integer.toString(customer.getID()));
+					
+					storeState.update();
+					//-------------------------------------------------------------------
+					// change the rest of the variables.
 		if(storeState.getIsOpen()) {
-			// Set all pre update variables.
-			storeState.setEventName("Arrival ");
-			storeState.setCurrentTime(super.getTimeStamp());
-			Customer customer = new Customer(storeState.getCustomerIDSize(), storeState);
-			storeState.getCustomerID().add(customer);
-			double freeRegTime = super.getTimeStamp() - storeState.getTime();
-			storeState.increasRegFreeTime(freeRegTime);
-			double peopleInLineTime = super.getTimeStamp() - storeState.getTime();
-			storeState.increasInLineTime(peopleInLineTime);
-			storeState.setCurrentID(Integer.toString(customer.getID()));
 			
-			storeState.update();
-			//-------------------------------------------------------------------
-			// change the rest of the variables.
 			storeState.setTime(getTimeStamp());
 			storeState.increaseTotalAmountOfCustomers();
 			
