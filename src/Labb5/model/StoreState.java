@@ -12,7 +12,6 @@ import Labb5.simulator.State;
  *
  */
 public class StoreState extends State{
-	// TODO Fix the casher variables.
 	private int maxPeople;
 	private double lambda;
 	private double[] P;
@@ -32,6 +31,7 @@ public class StoreState extends State{
 	private ExponentialRandomStream ArrivalTime;
 	private UniformedRandomStream PickTime;
 	private UniformedRandomStream PayTime;
+	private int customersDone = 0;
 	/**
 	 * @param cashiers How many cashiers is there in the store.
 	 * @param maxPeople Max amount of people in the store.
@@ -49,28 +49,20 @@ public class StoreState extends State{
 		this.P = P;
 		this.K = K;
 		this.seed = seed;
-		this.ArrivalTime = new ExponentialRandomStream(getLambda(), getSeed());
-		this.PickTime = new UniformedRandomStream(getP()[0], getP()[1], getSeed());
-		this.PayTime = new UniformedRandomStream(getK()[0], getK()[1], getSeed());
+		this.ArrivalTime = new ExponentialRandomStream(lambda,seed);
+		this.PickTime = new UniformedRandomStream(P[0],P[1],seed);
+		this.PayTime = new UniformedRandomStream(K[0], K[1], seed);
 
 	}
 
-	//All the getClasses
+	//All the get methods 
 	/**
 	 * @return The max numbers of people allowed in the store.
 	 */
 	public int getMaxPeople() {
 		return maxPeople;
 	}
-
-	/**
-	 * Sets the name of the current event.
-	 * @param name
-	 */
-	public void setEventName(String name){
-	    this.eventName = name;
-    }
-
+	
 	/**
 	 * 
 	 * @return The total amount of customers.
@@ -78,15 +70,8 @@ public class StoreState extends State{
 	public int getTotalAmountOfCustomers(){
 	    return getTotalOfCustormers();
     }
-
-	/**
-	 * Increases the amount of total customers. 
-	 */
-    public void increaseTotalAmountOfCustomers(){
-	    this.totalAmountOfCustomers +=1;
-    }
-
-    /**
+	
+	 /**
      * 
      * @return The size of customers in line.
      */
@@ -156,34 +141,12 @@ public class StoreState extends State{
 	}
 
 	/**
-	 * Removes the first person in the line.
-	 */
-	public void removeInLine() {
-		inLine.removeFirst();
-	}
-
-	/**
-	 * @return True if the line is empty else false.
-	 */
-	public boolean isLineEmpty() {
-		return inLine.isEmpty();
-	}
-
-	/**
 	 * @return The amount of people in the store right now.
 	 */
 	public int getPeopleInStore() {
 		return peopleInStore;
 	}
 	
-	public void increasPeopleInStore() {
-		peopleInStore++;
-	}
-	
-	public void decreasPeopleInStore() {
-		peopleInStore--;
-	}
-
 	/**
 	 * @return The total amount of customers that have arrived to the store.
 	 */
@@ -197,10 +160,7 @@ public class StoreState extends State{
 	public int getMissed() {
 		return missedCustomers;
 	}
-	public void increaseMissed(){
-	    this.missedCustomers ++;
-    }
-
+	
 	/**
 	 * @return The name of the current event.
 	 */
@@ -255,44 +215,6 @@ public class StoreState extends State{
 	public ArrayList<Customer> getCustomerID(){
 		return CustomerID;
 	}
-
-	/**
-	 * Opens the store.
-	 */
-	public void openStore() {
-		isOpen = true;
-	}
-	
-	/**
-	 * Close the store. 
-	 */
-	public void closeStore() {
-		isOpen = false;
-	}
-	
-	/**
-	 * Notify the observer that changes have been made.
-	 */
-	public void update() {
-		setChanged();
-		notifyObservers();
-	}
-
-	/**
-	 * Increases the time registers have been free.
-	 * @param time
-	 */
-	public void increasRegFreeTime(double time) {
-		cashier.increseFreeCashierTime(time);
-	}
-
-	/**
-	 * Set the ID of the active customer.
-	 * @param ID
-	 */
-	public void setCurrentID(String ID) {
-		this.currentID = ID;
-	}
 	
 	/**
 	 * 
@@ -301,14 +223,6 @@ public class StoreState extends State{
 	public String getCurrentID() {
 		return currentID;
 	}
-
-	/**
-	 * Increases the time there have been people in line.
-	 * @param time
-	 */
-	public void increasInLineTime(double time) {
-		inLine.increasInLineTime(time);
-	}
 	
 	/**
 	 * 
@@ -316,22 +230,6 @@ public class StoreState extends State{
 	 */
 	public double getInLineTime() {
 		return inLine.getInLineTime();
-	}
-	
-	/**
-	 * 
-	 * @return If there is a free register.
-	 */
-	public boolean FreeRegs() {
-		return cashier.getFreeRegs();
-	}
-	
-	/**
-	 * Adds a customer in line.
-	 * @param ID
-	 */
-	public void addInLine(int ID) {
-		inLine.add(ID);
 	}
 	
 	/**
@@ -373,13 +271,7 @@ public class StoreState extends State{
 	protected double getNextPayTime() {
 		return PayTime.next();
 	}
-	/**
-	 * Change current time.
-	 * @param time
-	 */
-	public void setCurrentTime(double time) {
-		currentTime = time;
-	}
+	
 	/**
 	 * 
 	 * @return get the current time.
@@ -387,17 +279,158 @@ public class StoreState extends State{
 	public double getCurrentTime() {
 		return currentTime;
 	}
+	
+	/**
+	 * 
+	 * @return The amount of customers that have payed and left.
+	 */
+	public int getCustomersDone() {
+		return customersDone;
+	}
+	
+//------------------------------------------------------------------------
+	// All the set methods
+	/**
+	 * Sets the name of the current event.
+	 * @param name
+	 */
+	public void setEventName(String name){
+	    this.eventName = name;
+    }
+	
+	/**
+	 * Set the ID of the active customer.
+	 * @param ID
+	 */
+	public void setCurrentID(String ID) {
+		this.currentID = ID;
+	}
 
+	/**
+	 * Change current time.
+	 * @param time
+	 */
+	public void setCurrentTime(double time) {
+		currentTime = time;
+	}
+	
+//------------------------------------------------------------------------	
+	// All the increase methods.
+	/**
+	 * Increases the amount of total customers. 
+	 */
+    public void increaseTotalAmountOfCustomers(){
+	    this.totalAmountOfCustomers +=1;
+    }
+    
+	/**
+	 * increases the amount of people in the store.
+	 */
+    public void increasPeopleInStore() {
+		peopleInStore++;
+	}
+    
+	/**
+	 * Increase the amount of missed customers.
+	 */
+    public void increaseMissed(){
+	    this.missedCustomers ++;
+    }
+
+	/**
+	 * Increases the time registers have been free.
+	 * @param time
+	 */
+	public void increasRegFreeTime(double time) {
+		cashier.increseFreeCashierTime(time);
+	}
+	
+	/**
+	 * Increases the time there have been people in line.
+	 * @param time
+	 */
+	public void increasInLineTime(double time) {
+		inLine.increasInLineTime(time);
+	}
+	
 	/**
 	 * Increases the amount of registers in use.
 	 */
-		public void increasRegsInUse() {
-			cashier.increasRegsInUse();
-		}
+	public void increasRegsInUse() {
+		cashier.increasRegsInUse();
+	}
+	
+//------------------------------------------------------------------------
+    //Decrease methods
+    
+    /**
+     * Decrease the amount of people in the store.
+     */
+	public void decreasPeopleInStore() {
+		peopleInStore--;
+		customersDone++;
+	}
+	
 	/**
 	 * Decreases the amount of registers in use. 
 	 */
-		public void decreasRegsInUse() {
-			cashier.decreasRegsInUse();
-		}
+	public void decreasRegsInUse() {
+		cashier.decreasRegsInUse();
+	}
+    
+//------------------------------------------------------------------------
+    // Other methods
+    /**
+	 * Removes the first person in the line.
+	 */
+	public void removeInLine() {
+		inLine.removeFirst();
+	}
+
+	/**
+	 * @return True if the line is empty else false.
+	 */
+	public boolean isLineEmpty() {
+		return inLine.isEmpty();
+	}
+
+	/**
+	 * Opens the store.
+	 */
+	public void openStore() {
+		isOpen = true;
+	}
+	
+	/**
+	 * Close the store. 
+	 */
+	public void closeStore() {
+		isOpen = false;
+	}
+	
+	/**
+	 * Notify the observer that changes have been made.
+	 */
+	public void update() {
+		setChanged();
+		notifyObservers();
+	}
+	
+	/**
+	 * 
+	 * @return If there is a free register.
+	 */
+	public boolean FreeRegs() {
+		return cashier.getFreeRegs();
+	}
+	
+	/**
+	 * Adds a customer in line.
+	 * @param ID
+	 */
+	public void addInLine(int ID) {
+		inLine.add(ID);
+	}
+	
+	
 }

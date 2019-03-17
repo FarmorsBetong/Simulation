@@ -6,22 +6,20 @@ import Labb5.simulator.*;
 public class PaymentEvent extends Event{
 
 	private StoreState storeState;
+	private int ID;
 
-	public PaymentEvent(StoreState storeState, EventQueue queue, double time) {
+	public PaymentEvent(StoreState storeState, EventQueue queue, double time, int ID) {
 		super(queue, time);
 		this.storeState = storeState;
-
+		this.ID = ID;
 	}
 
-	/*
-	 *TODO Hur lång tid tar det att betala?
-	 *TODO minska antal människor i butiken
-	 *TODO om det är någon i FIFO kön ta den personen.
-	 * */
+
 	public void eventTriggered() {
 		storeState.setEventName("Payment: ");
 		storeState.setCurrentTime(super.getTimeStamp());
-		storeState.setCurrentID(Integer.toString(super.getQueue().getID()));
+		storeState.setCurrentID(Integer.toString(ID));
+		
 		double freeRegTime = super.getTimeStamp() - storeState.getTime();
 		storeState.increasRegFreeTime(freeRegTime);
 		double peopleInLineTime = super.getTimeStamp() - storeState.getTime();
@@ -38,8 +36,8 @@ public class PaymentEvent extends Event{
 		if(!storeState.isLineEmpty()){
 
 			//Creates a new payment event if there is people in queue.
-			PaymentEvent EventPay = new PaymentEvent(storeState,getQueue(),getTimeStamp() +
-					storeState.getCustomerPayTime(storeState.getNextInLine()));
+			int nextInLine = storeState.getNextInLine();
+			PaymentEvent EventPay = new PaymentEvent(storeState,super.getQueue(),super.getTimeStamp() +	storeState.getCustomerPayTime(nextInLine), nextInLine);
 
 			//Adds the event to EventQueue.
 			super.getQueue().addEvent(EventPay, storeState.getNextInLine());

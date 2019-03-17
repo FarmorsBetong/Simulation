@@ -16,7 +16,6 @@ public class ArrivalEvent extends Event{
 	public ArrivalEvent(StoreState storeState, EventQueue queue, double time) {
 		super(queue, time);
 		this.storeState = storeState;
-
 	}
 /**
  * Creates a new arrival. Checks if the store is open and if there is room for the new customer.
@@ -24,19 +23,22 @@ public class ArrivalEvent extends Event{
 	public void eventTriggered(){
 		//System.out.println("Arrival Time: " + super.getTimeStamp() );
 		// Set all pre update variables.
-					storeState.setEventName("Arrival ");
-					storeState.setCurrentTime(super.getTimeStamp());
-					Customer customer = new Customer(storeState.getCustomerIDSize(), storeState);
-					storeState.getCustomerID().add(customer);
-					double freeRegTime = super.getTimeStamp() - storeState.getTime();
-					storeState.increasRegFreeTime(freeRegTime);
-					double peopleInLineTime = super.getTimeStamp() - storeState.getTime();
-					storeState.increasInLineTime(peopleInLineTime);
-					storeState.setCurrentID(Integer.toString(customer.getID()));
-					
-					storeState.update();
-					//-------------------------------------------------------------------
-					// change the rest of the variables.
+		storeState.setEventName("Arrival ");
+		storeState.setCurrentTime(super.getTimeStamp());
+		Customer customer = new Customer(storeState.getCustomerIDSize(), storeState, storeState.getPeopleInStore() < storeState.getMaxPeople());
+		storeState.getCustomerID().add(customer);
+		storeState.setCurrentID(Integer.toString(customer.getID()));
+		if(!super.getQueue().isNextLast()) {
+			double freeRegTime = super.getTimeStamp() - storeState.getTime();
+			storeState.increasRegFreeTime(freeRegTime);
+		}
+		
+		double peopleInLineTime = super.getTimeStamp() - storeState.getTime();
+		storeState.increasInLineTime(peopleInLineTime);
+		
+		storeState.update();
+		//-------------------------------------------------------------------
+		// change the rest of the variables.
 		if(storeState.getIsOpen()) {
 			
 			storeState.setTime(getTimeStamp());
@@ -48,7 +50,8 @@ public class ArrivalEvent extends Event{
 				// Make a timeStamp for a new shoppingEvent.
 				double timeStamp = storeState.getTime() + customer.getPickTime();
 				// Make a new ShoppingEvent
-				super.getQueue().addEvent(new ShoppingEvent(storeState, super.getQueue(), timeStamp), customer.getID());
+			//	System.out.println("send from arrival "+customer.getID()+ " with timeStamp " + timeStamp);
+				super.getQueue().addEvent(new ShoppingEvent(storeState, super.getQueue(), timeStamp, customer.getID()), customer.getID());
 			}
 			else {
 				storeState.increaseMissed();
@@ -56,10 +59,6 @@ public class ArrivalEvent extends Event{
 			// Make a new ArrivalEvent and add it to the EventQueue.
 			double arrTime = storeState.getTime() + storeState.getNextExponetialTime();
 			super.getQueue().addEvent(new ArrivalEvent(storeState, super.getQueue(), arrTime));
-
-		}
-		else {
-			//storeState.increaseTotalAmountOfCustomers();
 		}
 	}
 }

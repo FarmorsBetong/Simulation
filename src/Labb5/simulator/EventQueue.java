@@ -152,5 +152,9 @@ public class EventQueue {
 			return;
 		}
 	}
+	
+	public boolean isNextLast() {
+		return header.next == last;
+	}
 
 }

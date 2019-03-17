@@ -11,13 +11,19 @@ public class SimMain {
 
     public static void main(String[] args) {
         //Creates constants the defines the specific state.
-        final int CASHIER = 2;
+    	  final int CASHIER = 2;
         final int MAX_PEOPLE = 5;
         final double lambda = 1.0;
         final double[] PICK_TIME = {0.5, 1.0};
         final double[] PAY_TIME = {2.0, 3.0};
         final long SEED = 1234;
 
+        /*final int CASHIER = 2;
+        final int MAX_PEOPLE = 7;
+        final double lambda = 3.0;
+        final double[] PICK_TIME = {0.6, 0.9};
+        final double[] PAY_TIME = {0.35, 0.6};
+        final long SEED = 13;*/
        //Creates a specific state reference.
        StoreState specificState = new StoreState(CASHIER,MAX_PEOPLE,
                 lambda,PICK_TIME,PAY_TIME,SEED);

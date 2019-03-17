@@ -36,6 +36,8 @@ public class UniformedRandomStream {
  * @return A random double between lower and upper.
  */
     public double next() {
-        return lower+rand.nextDouble()*width;
+    	double test = lower+rand.nextDouble()*width;
+    	//System.out.println("Test = " + test);
+        return test;//lower+rand.nextDouble()*width;
     }
 }

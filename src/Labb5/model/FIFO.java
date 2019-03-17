@@ -62,7 +62,10 @@ class FIFO{
 		String string = "[";
 		
 		for (int elem= 0; elem < queue.size(); elem++) {
-			string += String.valueOf(queue.get(elem)) + ", ";
+			string += String.valueOf(queue.get(elem));
+			if(elem < queue.size()-1) {
+				string +=", ";
+			}
 		}	
 		string += "]";
 		return string;

@@ -16,14 +16,15 @@ public class Customer {
  * @param K
  * @param seed
  */
-	public Customer(int ID, StoreState storeState) {
+	public Customer(int ID, StoreState storeState, boolean check) {
 		//Makes references to the uniformed class to be able to generate streams.
 		
 		
 		this.ID = ID;
-		this.pickTime = storeState.getNextPickTime();
-		this.payTime = storeState.getNextPayTime();
-		
+		if(check) {
+			this.pickTime = storeState.getNextPickTime();
+			this.payTime = storeState.getNextPayTime();
+		}
 	}
 /**
  * 

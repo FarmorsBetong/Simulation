@@ -78,7 +78,7 @@ public class SimView implements Observer {
 		String amOfFreeRegs = String.valueOf(currentState.getAmOfRegs() - currentState.getRegsInUse()) + "  ";
 		String sumTimeFreeRegs = String.valueOf(String.format("%.2f", currentState.getFreeTimeRegs())) + " ";
 		String amOfCusts = String.valueOf(currentState.getPeopleInStore()) + " ";
-		String doneCusts = String.valueOf(currentState.getTotalOfCustormers() - currentState.getPeopleInStore()) + "  ";
+		String doneCusts = String.valueOf(currentState.getCustomersDone()) + "  ";
 		String missedCusts = String.valueOf(currentState.getMissed()) + "   ";
 		String totAmOfQueuedPeeps = String.valueOf(currentState.getPeopleInLineTotal()) + "   ";
 		String timeQueued = String.valueOf(String.format("%.2f",currentState.getInLineTime())) + "  ";
@@ -89,8 +89,9 @@ public class SimView implements Observer {
 		if (event == "Start" || event == "Stop") {
 			infoRow = time + event;
 		} else {
-			infoRow = time + event + custNum + open + amOfFreeRegs + sumTimeFreeRegs + amOfCusts + doneCusts
-					+ missedCusts + totAmOfQueuedPeeps + timeQueued + inLine + wholeQueue;
+			
+			infoRow = time + event + custNum +"    "+ open + "   "+ amOfFreeRegs +"   "+ sumTimeFreeRegs +"   "+ amOfCusts +"   "+ doneCusts
+					+"   "+ missedCusts +"   "+ totAmOfQueuedPeeps +"   "+ timeQueued +"   "+ inLine +"   "+ wholeQueue;
 		}
 
 		System.out.println("  " + infoRow);
