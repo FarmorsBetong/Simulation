@@ -57,7 +57,6 @@ public class Optimize implements K {
 
 
     private static int method2(long seed){
-        System.out.println("det här sög jue");
         StoreState state;
         int missed = 199999;
         int bestRegisterAmount = 0;
@@ -74,13 +73,10 @@ public class Optimize implements K {
             }
                 missed = state.getMissed();
                 bestRegisterAmount = cashiers;
-
-            System.out.println("Kassor:" + bestRegisterAmount + " missade :" + missed + " statemissed: " + state.getMissed());
-
         }
 
-        printStart();
-        System.out.println(" (" + missed + "): " + bestRegisterAmount);
+        //printStart();
+        //System.out.println(" (" + missed + "): " + bestRegisterAmount);
         return bestRegisterAmount;
     }
 
@@ -91,15 +87,17 @@ public class Optimize implements K {
         //Variables
         Random random = new Random(seed);
         int counter = 0;
-        int bestRegisterAmount = M;
+        int bestRegisterAmount = 1;
+        int varv = 1;
 
         while(true) {
 
             int temp = method2(random.nextInt());
 
-            if (temp >= bestRegisterAmount) {
+            if (temp == bestRegisterAmount) {
                 counter++;
-            } else {
+            }
+            else if(temp > bestRegisterAmount) {
                 counter = 0;
                 bestRegisterAmount = temp;
             }
@@ -107,6 +105,9 @@ public class Optimize implements K {
             if (counter == 100) {
                 break;
             }
+            System.out.println("varv: " + varv + " counter :" + counter);
+            System.out.println("BestKassaNu :" + bestRegisterAmount + " Temp KAssa:" + temp);
+            varv++;
         }
 
 
