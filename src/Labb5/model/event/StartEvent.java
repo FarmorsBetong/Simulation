@@ -1,5 +1,6 @@
 package Labb5.model.event;
 
+import Labb5.K;
 import Labb5.model.StoreState;
 import Labb5.simulator.*;
 public class StartEvent extends Event{
@@ -26,6 +27,12 @@ public class StartEvent extends Event{
 		super(queue, time);
 		this.storeState = storeState;
 		this.view = view;
+	}
+
+	public StartEvent(StoreState storeState, EventQueue queue, double time){
+		super(queue,time);
+		this.storeState = storeState;
+
 	}
 /**
  * Deactivate the break, open the store, create the first ArrivalEvent. 

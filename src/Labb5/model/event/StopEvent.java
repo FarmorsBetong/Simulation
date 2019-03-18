@@ -21,6 +21,12 @@ public class StopEvent extends Event{
 		this.view = view;
 	}
 
+	public StopEvent(StoreState storeState, EventQueue queue, double time) {
+		super(queue, time);
+		this.storeState = storeState;
+
+	}
+
 	/**
 	 *
 	 * Lägg i nödbromsen
@@ -29,7 +35,6 @@ public class StopEvent extends Event{
 		storeState.setEventName("Stop");
 		storeState.setCurrentTime(super.getTimeStamp());
 		storeState.update();
-		//storeState.setTime(getTimeStamp());
 
 		//prints the result before shutting down.
 		view.printResult();
