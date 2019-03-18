@@ -3,6 +3,10 @@ package Labb5.model.event;
 import Labb5.model.*;
 import Labb5.simulator.*;
 
+/**
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ */
+
 public class PaymentEvent extends Event{
 
 	private StoreState storeState;

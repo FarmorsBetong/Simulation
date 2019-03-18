@@ -6,6 +6,10 @@ import Labb5.model.event.StartEvent;
 import Labb5.model.event.StopEvent;
 import Labb5.simulator.*;
 
+/**
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ */
+
 import java.util.Random;
 
 public class Optimize implements K {
@@ -13,7 +17,7 @@ public class Optimize implements K {
 
     public static void main(String[] args) {
 
-        method2(SEED);
+        method3(SEED);
 
 
     }
@@ -53,6 +57,7 @@ public class Optimize implements K {
 
 
     private static int method2(long seed){
+        System.out.println("det här sög jue");
         StoreState state;
         int missed = 199999;
         int bestRegisterAmount = 0;
@@ -86,7 +91,7 @@ public class Optimize implements K {
         //Variables
         Random random = new Random(seed);
         int counter = 0;
-        int bestRegisterAmount = 9001;
+        int bestRegisterAmount = M;
 
         while(true) {
 
@@ -96,6 +101,7 @@ public class Optimize implements K {
                 counter++;
             } else {
                 counter = 0;
+                bestRegisterAmount = temp;
             }
 
             if (counter == 100) {

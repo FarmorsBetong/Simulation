@@ -2,6 +2,9 @@ package Labb5;
 
 import java.util.Random;
 
+/**
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8.
+ */
 public class ExponentialRandomStream {
 	
 	private Random rand;

@@ -3,11 +3,7 @@ package Labb5.model;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 /**
- * 
- * @author wesjon-5
- *
- *	This program gives the basis for an "First in first out" program.
- *
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 
 class FIFO{

@@ -4,6 +4,11 @@ import java.util.Observable;
 import java.util.Observer;
 
 import Labb5.model.StoreState;
+import Labb5.model.event.StartEvent;
+
+/**
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ */
 
 public class SimView implements Observer {
 	private StoreState currentState;
@@ -57,44 +62,53 @@ public class SimView implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object f) {
-		String time = String.valueOf(String.format("%.2f", currentState.getCurrentTime())) + "    ";
 
-		String event;
-
-		if (currentState.getEventName() == "Arrival ") {
-			event = "Arrival     ";
-		} else if (currentState.getEventName() == "Shopping: ") {
-			event = "Shopping    ";
-		} else if (currentState.getEventName() == "Payment: ") {
-			event = "Payment     ";
-		} else if (currentState.getEventName() == "Closing ") {
-			event = "Closing   ";
-		} else {
-			event = currentState.getEventName();
+		if(currentState.getEventName().equals("Start")){
+			printStartup();
 		}
-
-		String custNum = String.valueOf(currentState.getCurrentID() + "  ");
-		String open = (currentState.getIsOpen()) ? "Ö  " : "S  ";
-		String amOfFreeRegs = String.valueOf(currentState.getAmOfRegs() - currentState.getRegsInUse()) + "  ";
-		String sumTimeFreeRegs = String.valueOf(String.format("%.2f", currentState.getFreeTimeRegs())) + " ";
-		String amOfCusts = String.valueOf(currentState.getPeopleInStore()) + " ";
-		String doneCusts = String.valueOf(currentState.getCustomersDone()) + "  ";
-		String missedCusts = String.valueOf(currentState.getMissed()) + "   ";
-		String totAmOfQueuedPeeps = String.valueOf(currentState.getPeopleInLineTotal()) + "   ";
-		String timeQueued = String.valueOf(String.format("%.2f",currentState.getInLineTime())) + "  ";
-		String inLine = String.valueOf(currentState.getQueueSize()) + "    ";
-		String wholeQueue = currentState.getQueue() + " ";
-
-		String infoRow;
-		if (event == "Start" || event == "Stop") {
-			infoRow = time + event;
-		} else {
-			
-			infoRow = time + event + custNum +"    "+ open + "   "+ amOfFreeRegs +"   "+ sumTimeFreeRegs +"   "+ amOfCusts +"   "+ doneCusts
-					+"   "+ missedCusts +"   "+ totAmOfQueuedPeeps +"   "+ timeQueued +"   "+ inLine +"   "+ wholeQueue;
+		else if(currentState.getEventName().equals("Stop")){
+			printResult();
 		}
+		else {
+			String time = String.valueOf(String.format("%.2f", currentState.getCurrentTime())) + "    ";
 
-		System.out.println("  " + infoRow);
+			String event;
+
+			if (currentState.getEventName() == "Arrival ") {
+				event = "Arrival     ";
+			} else if (currentState.getEventName() == "Shopping: ") {
+				event = "Shopping    ";
+			} else if (currentState.getEventName() == "Payment: ") {
+				event = "Payment     ";
+			} else if (currentState.getEventName() == "Closing ") {
+				event = "Closing   ";
+			} else {
+				event = currentState.getEventName();
+			}
+
+			String custNum = String.valueOf(currentState.getCurrentID() + "  ");
+			String open = (currentState.getIsOpen()) ? "Ö  " : "S  ";
+			String amOfFreeRegs = String.valueOf(currentState.getAmOfRegs() - currentState.getRegsInUse()) + "  ";
+			String sumTimeFreeRegs = String.valueOf(String.format("%.2f", currentState.getFreeTimeRegs())) + " ";
+			String amOfCusts = String.valueOf(currentState.getPeopleInStore()) + " ";
+			String doneCusts = String.valueOf(currentState.getCustomersDone()) + "  ";
+			String missedCusts = String.valueOf(currentState.getMissed()) + "   ";
+			String totAmOfQueuedPeeps = String.valueOf(currentState.getPeopleInLineTotal()) + "   ";
+			String timeQueued = String.valueOf(String.format("%.2f", currentState.getInLineTime())) + "  ";
+			String inLine = String.valueOf(currentState.getQueueSize()) + "    ";
+			String wholeQueue = currentState.getQueue() + " ";
+
+			String infoRow;
+			if (event == "Start" || event == "Stop") {
+				infoRow = time + event;
+			} else {
+
+				infoRow = time + event + custNum + "    " + open + "   " + amOfFreeRegs + "   " + sumTimeFreeRegs + "   " + amOfCusts + "   " + doneCusts
+						+ "   " + missedCusts + "   " + totAmOfQueuedPeeps + "   " + timeQueued + "   " + inLine + "   " + wholeQueue;
+			}
+
+			System.out.println("  " + infoRow);
+		}
 	}
 
 }

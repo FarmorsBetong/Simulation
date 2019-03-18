@@ -7,6 +7,9 @@ import Labb5.simulator.*;
 import Labb5.model.StoreState;
 
 
+/**
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ */
 public class RunSim {
 
     public static void main(String[] args) {

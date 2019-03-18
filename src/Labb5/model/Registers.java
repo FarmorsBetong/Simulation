@@ -1,9 +1,7 @@
 package Labb5.model;
 
 /**
- * 
- * @author wesjon-5
- *
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 class Registers {
 	private int amountOfRegisterInUse;

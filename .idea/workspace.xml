@@ -2,15 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a7ac112-beda-482e-a37e-dd78ae32fe25" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Labb5/K.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Labb5/Optimize.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Labb5/Optimize.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Labb5/RunSim.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Labb5/RunSim.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/META-INF/Labb5.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/ExponentialRandomStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/ExponentialRandomStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/K.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/K.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Labb5/Optimize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/Optimize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Labb5/RunSim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/RunSim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/UniformedRandomStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/UniformedRandomStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/model/FIFO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/model/FIFO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/model/Registers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/model/Registers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/model/StoreState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/model/StoreState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/model/event/ArrivalEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/model/event/ArrivalEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/model/event/ClosingEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/model/event/ClosingEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/model/event/PaymentEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/model/event/PaymentEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/model/event/ShoppingEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/model/event/ShoppingEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Labb5/model/event/StartEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/model/event/StartEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Labb5/model/event/StopEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/model/event/StopEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/simulator/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/simulator/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/simulator/EventQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/simulator/EventQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/simulator/SimView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/simulator/SimView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/simulator/Simulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/simulator/Simulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Labb5/simulator/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Labb5/simulator/State.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,12 +34,12 @@
     <session id="-613976358">
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="7" />
+          <entry key="JAVA" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2848" />
+          <entry key="JAVA" value="3225" />
         </counts>
       </usages-collector>
     </session>
@@ -38,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Labb5/model/StoreState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="43" column="88" lean-forward="true" selection-start-line="43" selection-start-column="88" selection-end-line="43" selection-end-column="88" />
+            <state relative-caret-position="170">
+              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#570#580#0" expanded="true" />
@@ -140,11 +151,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Labb5/Optimize.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/Event.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="30" column="80" selection-start-line="30" selection-start-column="80" selection-end-line="30" selection-end-column="80" />
+            <state relative-caret-position="85">
+              <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/Simulator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/SimView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,28 +182,51 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Labb5/model/event/StartEvent.java">
+        <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/State.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="102">
+              <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+              <folding>
+                <element signature="e#211#212#0" expanded="true" />
+                <element signature="e#231#232#0" expanded="true" />
+                <element signature="e#383#384#0" expanded="true" />
+                <element signature="e#410#411#0" expanded="true" />
+                <element signature="e#481#482#0" expanded="true" />
+                <element signature="e#499#500#0" expanded="true" />
+                <element signature="e#712#713#0" expanded="true" />
+                <element signature="e#738#739#0" expanded="true" />
+                <element signature="e#889#890#0" expanded="true" />
+                <element signature="e#916#917#0" expanded="true" />
+                <element signature="e#959#960#0" expanded="true" />
+                <element signature="e#987#988#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/SimView.java">
+        <entry file="file://$PROJECT_DIR$/src/Labb5/ExponentialRandomStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="85">
+              <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Labb5/model/event/StopEvent.java">
+        <entry file="file://$PROJECT_DIR$/src/Labb5/K.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+            <state relative-caret-position="323">
+              <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Labb5/Optimize.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1751">
+              <caret line="103" column="39" lean-forward="true" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,8 +237,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Labb5/RunSim.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            <state relative-caret-position="170">
+              <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -194,51 +246,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Labb5/K.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Labb5/UniformedRandomStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Labb5/model/Customer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-              <folding>
-                <element signature="e#698#699#0" expanded="true" />
-                <element signature="e#714#715#0" expanded="true" />
-                <element signature="e#788#789#0" expanded="true" />
-                <element signature="e#810#811#0" expanded="true" />
-                <element signature="e#882#883#0" expanded="true" />
-                <element signature="e#903#904#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Labb5/model/Registers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-              <folding>
-                <element signature="e#415#416#0" expanded="true" />
-                <element signature="e#455#456#0" expanded="true" />
-                <element signature="e#540#541#0" expanded="true" />
-                <element signature="e#602#603#0" expanded="true" />
-                <element signature="e#700#701#0" expanded="true" />
-                <element signature="e#736#737#0" expanded="true" />
-                <element signature="e#988#989#0" expanded="true" />
-                <element signature="e#1018#1019#0" expanded="true" />
-                <element signature="e#1106#1107#0" expanded="true" />
-                <element signature="e#1136#1137#0" expanded="true" />
-                <element signature="e#1231#1232#0" expanded="true" />
-                <element signature="e#1260#1261#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="102">
+              <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -263,17 +275,26 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Labb5/simulator/EventQueue.java" />
-        <option value="$PROJECT_DIR$/src/Labb5/simulator/State.java" />
-        <option value="$PROJECT_DIR$/src/Labb5/simulator/Simulator.java" />
-        <option value="$PROJECT_DIR$/src/Labb5/simulator/Event.java" />
-        <option value="$PROJECT_DIR$/src/Labb5/RunSim.java" />
-        <option value="$PROJECT_DIR$/src/Labb5/model/StoreState.java" />
         <option value="$PROJECT_DIR$/src/Labb5/K.java" />
-        <option value="$PROJECT_DIR$/src/Labb5/model/event/StopEvent.java" />
-        <option value="$PROJECT_DIR$/src/Labb5/simulator/SimView.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/model/event/ArrivalEvent.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/model/event/ClosingEvent.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/model/event/PaymentEvent.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/model/event/ShoppingEvent.java" />
         <option value="$PROJECT_DIR$/src/Labb5/model/event/StartEvent.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/model/event/StopEvent.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/model/Customer.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/model/FIFO.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/model/Registers.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/model/StoreState.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/simulator/EventQueue.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/simulator/Event.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/simulator/Simulator.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/simulator/SimView.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/simulator/State.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/ExponentialRandomStream.java" />
         <option value="$PROJECT_DIR$/src/Labb5/Optimize.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/RunSim.java" />
+        <option value="$PROJECT_DIR$/src/Labb5/UniformedRandomStream.java" />
       </list>
     </option>
   </component>
@@ -346,7 +367,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552923038457" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552926719120" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -366,7 +387,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RunSim">
+  <component name="RunManager" selected="Application.Optimize">
     <configuration name="Optimize" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Labb5.Optimize" />
       <module name="Labb5" />
@@ -408,8 +429,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RunSim" />
         <item itemvalue="Application.Optimize" />
+        <item itemvalue="Application.RunSim" />
       </list>
     </recent_temporary>
   </component>
@@ -429,13 +450,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15375000" />
+    <option name="totallyTimeSpent" value="19794000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24939272" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24939272" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -505,15 +526,18 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Labb5/model/event/ArrivalEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+        <state relative-caret-position="221">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Labb5/model/event/ClosingEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="119">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -522,8 +546,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Labb5/model/event/PaymentEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+        <state relative-caret-position="119">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -532,30 +556,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Labb5/model/event/ShoppingEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="26" lean-forward="true" selection-end-line="51" />
+        <state relative-caret-position="119">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Labb5/model/event/StartEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Labb5/model/event/StopEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Labb5/model/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-          <folding>
-            <element signature="e#698#699#0" expanded="true" />
-            <element signature="e#714#715#0" expanded="true" />
-            <element signature="e#788#789#0" expanded="true" />
-            <element signature="e#810#811#0" expanded="true" />
-            <element signature="e#882#883#0" expanded="true" />
-            <element signature="e#903#904#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Labb5/model/FIFO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="21" column="33" lean-forward="true" selection-end-line="118" selection-end-column="4" />
+        <state relative-caret-position="85">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding>
             <element signature="e#537#538#0" expanded="true" />
             <element signature="e#558#559#0" expanded="true" />
@@ -565,8 +604,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Labb5/model/Registers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+        <state relative-caret-position="68">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding>
             <element signature="e#415#416#0" expanded="true" />
             <element signature="e#455#456#0" expanded="true" />
@@ -584,45 +623,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="7" lean-forward="true" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/Simulator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" lean-forward="true" selection-end-line="31" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" column="37" selection-end-line="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labb5/ExponentialRandomStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="18" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labb5/UniformedRandomStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="3" lean-forward="true" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/EventQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="106" column="15" selection-start-line="106" selection-start-column="15" selection-end-line="106" selection-end-column="15" />
+        <state relative-caret-position="102">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
           <folding>
             <element signature="e#363#364#0" expanded="true" />
             <element signature="e#390#391#0" expanded="true" />
@@ -632,34 +636,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labb5/model/event/StopEvent.java">
+    <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/Event.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+        <state relative-caret-position="85">
+          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/Simulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="50" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/SimView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/SimView.java">
+    <entry file="file://$PROJECT_DIR$/src/Labb5/simulator/State.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labb5/model/event/StartEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="102">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <folding>
+            <element signature="e#211#212#0" expanded="true" />
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#916#917#0" expanded="true" />
+            <element signature="e#959#960#0" expanded="true" />
+            <element signature="e#987#988#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Labb5/model/StoreState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="43" column="88" lean-forward="true" selection-start-line="43" selection-start-column="88" selection-end-line="43" selection-end-column="88" />
+        <state relative-caret-position="170">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#570#580#0" expanded="true" />
@@ -759,30 +784,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labb5/K.java">
+    <entry file="file://$PROJECT_DIR$/src/Labb5/ExponentialRandomStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        <state relative-caret-position="85">
+          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Labb5/RunSim.java">
+    <entry file="file://$PROJECT_DIR$/src/Labb5/K.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Labb5/Optimize.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="30" column="80" selection-start-line="30" selection-start-column="80" selection-end-line="30" selection-end-column="80" />
+        <state relative-caret-position="1751">
+          <caret line="103" column="39" lean-forward="true" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Labb5/RunSim.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Labb5/UniformedRandomStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
         </state>
       </provider>
     </entry>

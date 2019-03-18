@@ -1,5 +1,8 @@
 package Labb5.simulator;
 
+/**
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ */
 public class Simulator {
     private EventQueue queue;
     private State state;

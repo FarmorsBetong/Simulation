@@ -2,10 +2,13 @@ package Labb5.simulator;
 
 /**
  * 
- * @author johlax-8 A queue that keeps track of general events from the class
- *         "Event" in this projekt
+ * A queue that keeps track of general events from the class
+ *"Event" in this projekt
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
  *
  */
+
+
 
 public class EventQueue {
 

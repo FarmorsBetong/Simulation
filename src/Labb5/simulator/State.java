@@ -2,6 +2,10 @@ package Labb5.simulator;
 
 import java.util.Observable;
 
+
+/**
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ */
 public class State extends Observable {
 
 	//instance variables

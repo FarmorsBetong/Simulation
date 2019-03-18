@@ -3,6 +3,10 @@ package Labb5.model.event;
 import Labb5.model.StoreState;
 import Labb5.simulator.*;
 
+
+/**
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ */
 public class StopEvent extends Event{
 
 	SimView view;
@@ -37,7 +41,6 @@ public class StopEvent extends Event{
 		storeState.update();
 
 		//prints the result before shutting down.
-		view.printResult();
 		storeState.raiseEmergencyStop();
 	}
 }

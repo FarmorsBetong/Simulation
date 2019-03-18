@@ -3,6 +3,10 @@ package Labb5.model.event;
 import Labb5.K;
 import Labb5.model.StoreState;
 import Labb5.simulator.*;
+
+/**
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ */
 public class StartEvent extends Event{
 
 	/*
@@ -39,7 +43,6 @@ public class StartEvent extends Event{
  */
 	public void eventTriggered() {
 		// Pre update changes.
-		view.printStartup();
 		storeState.setEventName("Start");
 		storeState.setCurrentTime(super.getTimeStamp());
 		storeState.update();

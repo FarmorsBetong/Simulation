@@ -7,9 +7,7 @@ import Labb5.UniformedRandomStream;
 import Labb5.simulator.State;
 
 /**
- *
- * @author wesjon-5, 
- *
+ * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 public class StoreState extends State{
 	private int maxPeople;

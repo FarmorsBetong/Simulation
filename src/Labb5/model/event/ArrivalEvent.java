@@ -5,6 +5,11 @@ import Labb5.model.StoreState;
 import Labb5.simulator.Event;
 import Labb5.simulator.EventQueue;
 
+
+/**
+ *@authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ */
+
 public class ArrivalEvent extends Event{
 	private StoreState storeState;
 	/**
@@ -12,6 +17,7 @@ public class ArrivalEvent extends Event{
 	 * @param storeState
 	 * @param queue
 	 * @param time
+	 *
 	 */
 	public ArrivalEvent(StoreState storeState, EventQueue queue, double time) {
 		super(queue, time);
