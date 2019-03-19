@@ -3,7 +3,7 @@ package Labb5.model;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 
 class FIFO{
@@ -21,12 +21,6 @@ class FIFO{
 		return queue.size();
 	}
 
-	/**
-	 * @return The max size queue have ever had.
-	 */
-	public int maxSize() {
-		return maxSize;
-	}
 	
 	
 	/**

@@ -7,7 +7,9 @@ import Labb5.UniformedRandomStream;
 import Labb5.simulator.State;
 
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ * StoreState holds the information about the specific simulation, the Store.
+ *
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 public class StoreState extends State{
 	private int maxPeople;
@@ -17,10 +19,9 @@ public class StoreState extends State{
 	private long seed;
 	private FIFO inLine = new FIFO();
 	private int peopleInStore = 0;
-	private int totalAmountOfCustomers = 0;
 	private int missedCustomers = 0;
 	private String eventName = "";
-	private ArrayList<Customer> CustomerID = new ArrayList<Customer>();
+	private ArrayList<Customer> CustomerID = new ArrayList<>();
 	private boolean isOpen = false;
 	private Registers cashier;
 	private String currentID = "";
@@ -55,29 +56,29 @@ public class StoreState extends State{
 
 	//All the get methods 
 	/**
+     * returns the max people allowed in the store.
+     *
 	 * @return The max numbers of people allowed in the store.
 	 */
 	public int getMaxPeople() {
 		return maxPeople;
 	}
 	
-	/**
-	 * 
-	 * @return The total amount of customers.
-	 */
-	public int getTotalAmountOfCustomers(){
-	    return getTotalOfCustormers();
-    }
-	
+
 	 /**
-     * 
-     * @return The size of customers in line.
-     */
+      *
+      * returns the size of the queue of costumers.
+      *
+      *
+      *@return The size of customers in line.
+      */
 	public int getQueueSize() {
 		return inLine.size();
 	}
 	
 	/**
+     *
+     * returns the amount of register in use at the time.
 	 * 
 	 * @return The amount of registers in use.
 	 */
@@ -86,7 +87,9 @@ public class StoreState extends State{
 	}
 
 	/**
-	 * 
+	 *
+     * returns the total amount of register in the store.
+     *
 	 * @return The total amount of registers
 	 */
 	public int getAmOfRegs() {
@@ -94,6 +97,8 @@ public class StoreState extends State{
 	}
 	
 	/**
+     *
+     * returns a String of people in the queue.
 	 * 
 	 * @return Who is in line.
 	 */
@@ -102,7 +107,8 @@ public class StoreState extends State{
 	}
 
 	/**
-	 * 
+	 * returns the lambda
+     *
 	 * @return Lambda.
 	 */
 	public double getLambda() {
@@ -110,7 +116,8 @@ public class StoreState extends State{
 	}
 
 	/**
-	 * 
+	 * returns the picktime array.
+     *
 	 * @return The Array P.
 	 */
 	public double[] getP(){
@@ -118,6 +125,7 @@ public class StoreState extends State{
 	}
 
 	/**
+     * Returns the arrival array
 	 * 
 	 * @return The Array K.
 	 */
@@ -125,6 +133,8 @@ public class StoreState extends State{
 		return K;
 	}
 	/**
+     * returns the seed.
+     *
 	 * @return The programs seed.
 	 */
 	public long getSeed() {
@@ -132,6 +142,8 @@ public class StoreState extends State{
 	}
 
 	/**
+     * returns the id to the costumer that is next in line.
+     *
 	 * @return The next person in line to pay.
 	 */
 	public int getNextInLine() {
@@ -145,12 +157,6 @@ public class StoreState extends State{
 		return peopleInStore;
 	}
 	
-	/**
-	 * @return The total amount of customers that have arrived to the store.
-	 */
-	public int getTotalOfCustormers() {
-		return totalAmountOfCustomers;
-	}
 
 	/**
 	 * @return The amount of missed customers.
@@ -168,7 +174,7 @@ public class StoreState extends State{
 
 	/**
 	 *
-	 * @param i
+	 * @param i index
 	 * @return The last customer.
 	 */
 	public int getCustomerID(int i){
@@ -176,7 +182,7 @@ public class StoreState extends State{
 	}
 
 	/**
-	 * @param i
+	 * @param i index
 	 * @return The time it takes for this customer to pick products.
 	 */
 	public double getCustomerBuyTime(int i) {
@@ -185,7 +191,7 @@ public class StoreState extends State{
 
 	/**
 	 *
-	 * @param i
+	 * @param i index
 	 * @return The time it takes for this customer to pay for the products.
 	 */
 	public double getCustomerPayTime(int i) {
@@ -290,7 +296,7 @@ public class StoreState extends State{
 	// All the set methods
 	/**
 	 * Sets the name of the current event.
-	 * @param name
+	 * @param name Event name
 	 */
 	public void setEventName(String name){
 	    this.eventName = name;
@@ -298,7 +304,7 @@ public class StoreState extends State{
 	
 	/**
 	 * Set the ID of the active customer.
-	 * @param ID
+	 * @param ID Cosutmer ID
 	 */
 	public void setCurrentID(String ID) {
 		this.currentID = ID;
@@ -306,7 +312,7 @@ public class StoreState extends State{
 
 	/**
 	 * Change current time.
-	 * @param time
+	 * @param time the time.
 	 */
 	public void setCurrentTime(double time) {
 		currentTime = time;
@@ -314,17 +320,11 @@ public class StoreState extends State{
 	
 //------------------------------------------------------------------------	
 	// All the increase methods.
-	/**
-	 * Increases the amount of total customers. 
-	 */
-    public void increaseTotalAmountOfCustomers(){
-	    this.totalAmountOfCustomers +=1;
-    }
-    
+
 	/**
 	 * increases the amount of people in the store.
 	 */
-    public void increasPeopleInStore() {
+    public void increasePeopleInStore() {
 		peopleInStore++;
 	}
     
@@ -337,24 +337,24 @@ public class StoreState extends State{
 
 	/**
 	 * Increases the time registers have been free.
-	 * @param time
+	 * @param time free time reg.
 	 */
-	public void increasRegFreeTime(double time) {
+	public void increaseRegFreeTime(double time) {
 		cashier.increseFreeCashierTime(time);
 	}
 	
 	/**
 	 * Increases the time there have been people in line.
-	 * @param time
+	 * @param time the time in queue.
 	 */
-	public void increasInLineTime(double time) {
+	public void increaseInLineTime(double time) {
 		inLine.increasInLineTime(time);
 	}
 	
 	/**
 	 * Increases the amount of registers in use.
 	 */
-	public void increasRegsInUse() {
+	public void increaseRegsInUse() {
 		cashier.increasRegsInUse();
 	}
 	
@@ -364,7 +364,7 @@ public class StoreState extends State{
     /**
      * Decrease the amount of people in the store.
      */
-	public void decreasPeopleInStore() {
+	public void decreasePeopleInStore() {
 		peopleInStore--;
 		customersDone++;
 	}
@@ -372,7 +372,7 @@ public class StoreState extends State{
 	/**
 	 * Decreases the amount of registers in use. 
 	 */
-	public void decreasRegsInUse() {
+	public void decreaseRegsInUse() {
 		cashier.decreasRegsInUse();
 	}
     
@@ -424,7 +424,7 @@ public class StoreState extends State{
 	
 	/**
 	 * Adds a customer in line.
-	 * @param ID
+	 * @param ID costumer ID
 	 */
 	public void addInLine(int ID) {
 		inLine.add(ID);

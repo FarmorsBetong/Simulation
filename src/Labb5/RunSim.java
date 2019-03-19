@@ -5,16 +5,19 @@ import Labb5.model.event.StartEvent;
 import Labb5.model.event.StopEvent;
 import Labb5.simulator.*;
 import Labb5.model.StoreState;
+import Labb5.view.SimView;
 
 
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ * RunSim is the main class that sets up one specific simulation.
+ *
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 public class RunSim {
 
     public static void main(String[] args) {
 
-
+/*
         //Creates constants the defines the specific state.
         final int CASHIER = 2;
         final int MAX_PEOPLE = 5;
@@ -24,18 +27,16 @@ public class RunSim {
         final long SEED = 1234;
         final double END_TIME = 10.0;
         final double STOP_TIME = 999.00;
+*/
 
-        /*
         final int CASHIER = 2;
-        final int MAX_PEOPLE = 5;
-        final double lambda = 1.0;
-        final double[] PICK_TIME = {0.5,1.0};
-        final double[] PAY_TIME = {2.0,3.0};
-        final long SEED = 1234;
-        final double END_TIME = 10.0;
+        final int MAX_PEOPLE = 7;
+        final double lambda = 3.0;
+        final double[] PICK_TIME = {0.6,0.9};
+        final double[] PAY_TIME = {0.35,0.6};
+        final long SEED = 13;
+        final double END_TIME = 8.0;
         final double STOP_TIME = 999.00;
-        */
-
 
 
         //Creates a specific state reference.

@@ -4,7 +4,9 @@ package Labb5;
 import java.util.Random;
 
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ * Calculates pick and payment time.
+ *
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 public class UniformedRandomStream {
 
@@ -12,9 +14,9 @@ public class UniformedRandomStream {
     private double lower, width;
 /**
  * 
- * @param lower
- * @param upper
- * @param seed
+ * @param lower lower pick time
+ * @param upper higest pick time
+ * @param seed the seed
  */
     public UniformedRandomStream(double lower, double upper, long seed) {
     	// Sets random to use this seed.
@@ -24,8 +26,8 @@ public class UniformedRandomStream {
     }
 /**
  * 
- * @param lower
- * @param upper
+ * @param lower lowest picktime
+ * @param upper highest picktime
  */
     public UniformedRandomStream(double lower, double upper) {
     	// Sets random run without seed.

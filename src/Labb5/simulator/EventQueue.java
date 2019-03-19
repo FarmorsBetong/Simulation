@@ -4,7 +4,7 @@ package Labb5.simulator;
  * 
  * A queue that keeps track of general events from the class
  *"Event" in this projekt
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  *
  */
 
@@ -20,13 +20,11 @@ public class EventQueue {
 		Node(Event event, int ID) {
 			this.event = event;
 			this.ID = ID;
-
 		}
 
 		Node(Event event) {
 			this.event = event;
 		}
-
 	}
 
 	private Node header;
@@ -42,7 +40,7 @@ public class EventQueue {
 	}
 
 	/**
-	 * Lï¿½gger till ett event i kï¿½n, sorteras automatiskt
+	 * Adds events
 	 * 
 	 * @param event Eventen som skall lï¿½ggas kï¿½n
 	 * @param ID    Vilken kund eventet ï¿½r kopplat till

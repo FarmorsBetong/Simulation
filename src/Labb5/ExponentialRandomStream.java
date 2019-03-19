@@ -3,7 +3,9 @@ package Labb5;
 import java.util.Random;
 
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8.
+ * Calculates the arrival time
+ *
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8.
  */
 public class ExponentialRandomStream {
 	
@@ -11,8 +13,8 @@ public class ExponentialRandomStream {
 	private double lambda;
 	  /**
 	   * 
-	   * @param lambda
-	   * @param seed
+	   * @param lambda the lambda god
+	   * @param seed the seed.
 	   */
 	public ExponentialRandomStream(double lambda, long seed) {
 	  	// Sets random to use this seed.
@@ -21,7 +23,7 @@ public class ExponentialRandomStream {
 	}
 	  /**
 	   * 
-	   * @param lambda
+	   * @param lambda lambda god
 	   */
 	public ExponentialRandomStream(double lambda) {
 		// Sets random run without seed.

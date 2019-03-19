@@ -7,22 +7,33 @@ import Labb5.model.event.StopEvent;
 import Labb5.simulator.*;
 
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ * Optimize is contains 3 methods that together finds the best and optimized register amount.
+ *
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 
 import java.util.Random;
 
 public class Optimize implements K {
 
+    /**
+     *
+     * @param args argument for main method.
+     *  The main method sets up and uses the private methods that is defined in this class
+     *  which is, "simulation", "bestRegAmount" and "OptimalRegAmount". These methods calculates the
+     *  optimized amount of registers you should have under different circumstances, like with different seed
+     *  and lambda value.
+     *
+     */
 
     public static void main(String[] args) {
 
-        method3(SEED);
+        bestRegAmount(SEED);
 
 
     }
 
-    private static StoreState method1(int cashier, long seed){
+    private static StoreState simulation(int cashier, long seed){
 
 
 
@@ -56,7 +67,7 @@ public class Optimize implements K {
     }
 
 
-    private static int method2(long seed){
+    private static int bestRegAmount(long seed){
         StoreState state;
         int missed = 199999;
         int bestRegisterAmount = 0;
@@ -65,7 +76,7 @@ public class Optimize implements K {
         for(int cashiers = M; cashiers >= 1; cashiers--){
 
 
-            state = method1(cashiers,seed);
+            state = simulation(cashiers,seed);
 
             //If the amount of missed people increase, then break.
             if(state.getMissed() > missed){
@@ -75,14 +86,14 @@ public class Optimize implements K {
                 bestRegisterAmount = cashiers;
         }
 
-        //printStart();
-        //System.out.println(" (" + missed + "): " + bestRegisterAmount);
+        printStart();
+        System.out.println(" (" + missed + "): " + bestRegisterAmount);
         return bestRegisterAmount;
     }
 
 
 
-    private static void method3(int seed){
+    private static void optimalRegAmount(int seed){
 
         //Variables
         Random random = new Random(seed);
@@ -92,22 +103,22 @@ public class Optimize implements K {
 
         while(true) {
 
-            int temp = method2(random.nextInt());
+            int temp = bestRegAmount(random.nextInt());
 
-            if (temp == bestRegisterAmount) {
-                counter++;
-            }
-            else if(temp > bestRegisterAmount) {
+            if(temp > bestRegisterAmount) {
                 counter = 0;
                 bestRegisterAmount = temp;
+            }
+            else {
+                counter++;
             }
 
             if (counter == 100) {
                 break;
             }
-            System.out.println("varv: " + varv + " counter :" + counter);
             System.out.println("BestKassaNu :" + bestRegisterAmount + " Temp KAssa:" + temp);
             varv++;
+            System.out.println("Den mest optimala kassaantalet: " + bestRegisterAmount);
         }
 
 

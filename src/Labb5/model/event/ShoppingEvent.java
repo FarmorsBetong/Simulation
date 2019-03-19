@@ -4,7 +4,9 @@ import Labb5.model.*;
 import Labb5.simulator.*;
 
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ * Shopping Event holds a costumer, and performance a shopping action for that specific costumer.
+ *
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 
 class ShoppingEvent extends Event{
@@ -13,9 +15,9 @@ class ShoppingEvent extends Event{
 	private int ID;
 	/**
 	 * 
-	 * @param storeState
-	 * @param queue
-	 * @param time
+	 * @param storeState Specific state.
+	 * @param queue the queue that holds events.
+	 * @param time the time when the event occurs.
 	 */
 	public ShoppingEvent(StoreState storeState, EventQueue queue, double time, int ID) {
 		super(queue,time);
@@ -33,9 +35,9 @@ class ShoppingEvent extends Event{
 		
 	//	System.out.println("the ID "+ ID+" with TimeStamp "+ super.getTimeStamp());
 		double freeRegTime = super.getTimeStamp() - storeState.getTime();
-		storeState.increasRegFreeTime(freeRegTime);
+		storeState.increaseRegFreeTime(freeRegTime);
 		double peopleInLineTime = super.getTimeStamp() - storeState.getTime();
-		storeState.increasInLineTime(peopleInLineTime);
+		storeState.increaseInLineTime(peopleInLineTime);
 		storeState.update();
 		//--------------------------------------------------------------------
 		// update the general time.
@@ -44,7 +46,7 @@ class ShoppingEvent extends Event{
 		double timeStamp = storeState.getTime() + storeState.getCustomerPayTime(ID);
 		// Checks if there is someone in line. True = add customer to the line, False = go to the register.
 		if(storeState.FreeRegs()) {
-			storeState.increasRegsInUse();
+			storeState.increaseRegsInUse();
 			//System.out.println("In shopping "+ID);
 			super.getQueue().addEvent(new PaymentEvent(storeState,super.getQueue(),timeStamp, ID),ID);
 		}else {

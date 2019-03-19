@@ -1,11 +1,14 @@
 package Labb5.model.event;
 
-import Labb5.K;
+
 import Labb5.model.StoreState;
 import Labb5.simulator.*;
+import Labb5.view.SimView;
 
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ * Start Event is used to create a chain of events.
+ *
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 public class StartEvent extends Event{
 
@@ -22,10 +25,10 @@ public class StartEvent extends Event{
 	private SimView view;
 /**
  * 
- * @param storeState
- * @param queue
- * @param time
- * @param view
+ * @param storeState Specific state.
+ * @param queue the queue that holds events.
+ * @param time the time when the event occurs.
+ * @param view an object of the view.
  */
 	public StartEvent(StoreState storeState, EventQueue queue, double time, SimView view) {
 		super(queue, time);

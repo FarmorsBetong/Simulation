@@ -1,19 +1,21 @@
 package Labb5.model;
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ * The class that defines a costumer in the store.
+ *
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 public class Customer {
 
 	private int ID; 
 	private double pickTime;
 	private double payTime;
-/**
- * 
- * @param ID
- * @param P
- * @param K
- * @param seed
- */
+
+	/**
+	 *
+	 * @param ID costum ID
+	 * @param storeState specific state
+	 * @param check checker
+	 */
 	public Customer(int ID, StoreState storeState, boolean check) {
 		//Makes references to the uniformed class to be able to generate streams.
 		

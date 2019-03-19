@@ -1,7 +1,7 @@
 package Labb5;
 
 public interface K {
-/*
+
     // Ex 1: (som sim1)
     public static final int M = 5;
     public static final double L = 1;
@@ -17,7 +17,7 @@ public interface K {
     public static final double STOP_TIME = 999.0d;
 
 
-
+/*
     // Ex 2:
 	  public static final int M = 7;
 	  public static final double L = 2;
@@ -32,7 +32,7 @@ public interface K {
 	  public static final double END_TIME = 10.0d;
 	  public static final double STOP_TIME = 999.0d;
 
-    // Ex 3: (som sim2)
+   /* // Ex 3: (som sim2)
   public static final int M = 7;
   public static final double L = 3;
 
@@ -45,7 +45,7 @@ public interface K {
 //  public static final int SEED = 13;
 //  public static final double END_TIME = 8.0d;
 //  public static final double STOP_TIME = 999.0d;
-
+/*
     // Ex 4
     public static final int M = 100;
     public static final double L = 50;
@@ -59,7 +59,7 @@ public interface K {
     public static final int SEED = 42;
     public static final double END_TIME = 20.0d;
     public static final double STOP_TIME = 999.0d;
-
+*/
     // Ex 5
 
 //    public static final int M = 1400;

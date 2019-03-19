@@ -1,7 +1,10 @@
 package Labb5.simulator;
 
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ *
+ * Simulator takes in a general queue and a state and then runs the simulation.
+ *
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 public class Simulator {
     private EventQueue queue;
@@ -13,6 +16,10 @@ public class Simulator {
     }
 
 
+    /**
+     * Run method just starts a loop that goes until the simulations emergancyStop is true.
+     * It gets next event from the event queue and trigger the events effect.
+     */
     public void run(){
 
         //loops until the breaks is false
@@ -25,11 +32,6 @@ public class Simulator {
             catch(NullPointerException e) {
             	break;
             }
-
-            // sets the time of the simulations
-            //state.setTime();
-
-
         }
     }
 }

@@ -4,7 +4,9 @@ import Labb5.model.StoreState;
 import Labb5.simulator.*;
 
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ * Closing Event is used to close the store.
+ *
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 public class ClosingEvent extends Event{
 
@@ -12,9 +14,9 @@ public class ClosingEvent extends Event{
 	private StoreState storeState;
 	/**
 	 * 
-	 * @param storeState
-	 * @param queue
-	 * @param time
+	 * @param storeState Specific state.
+	 * @param queue the queue that holds events.
+	 * @param time the time when the event occurs.
 	 */
 	public ClosingEvent(StoreState storeState, EventQueue queue, double time) {
 		super(queue, time);
@@ -32,10 +34,10 @@ public class ClosingEvent extends Event{
 		
 		// The time registers have been free since last timeStamp.
 		double freeRegTime = super.getTimeStamp() - storeState.getTime();
-		storeState.increasRegFreeTime(freeRegTime);
+		storeState.increaseRegFreeTime(freeRegTime);
 		// The time people have been in line since last timeStamp.
 		double peopleInLineTime = super.getTimeStamp() - storeState.getTime();
-		storeState.increasInLineTime(peopleInLineTime);
+		storeState.increaseInLineTime(peopleInLineTime);
 		storeState.update();
 		//-------------------------------------------------
 		// change the rest of the variables

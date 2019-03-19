@@ -1,28 +1,30 @@
-package Labb5.simulator;
+package Labb5.view;
 
 import java.util.Observable;
 import java.util.Observer;
 
 import Labb5.model.StoreState;
-import Labb5.model.event.StartEvent;
+import Labb5.simulator.*;
 
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ *
+ * The specific view that observers the state and prints the changes.
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 
-public class SimView implements Observer {
+public class SimView extends View implements Observer{
 	private StoreState currentState;
 	private String Pstr;
 	private String Kstr;
 
 	public SimView(StoreState state) {
+		super(state);
 		this.currentState = state;
-		currentState.addObserver(this);
 		Pstr = "[" + String.valueOf(currentState.getP()[0]) + ".." + String.valueOf(currentState.getP()[1] + "]");
 		Kstr = "[" + String.valueOf(currentState.getK()[0]) + ".." + String.valueOf(currentState.getK()[1] + "]");
 	}
 
-	public void printStartup() {
+	private void printStartup() {
 
 		System.out.println("PARAMETRAR");
 		System.out.println("==========");
@@ -40,11 +42,11 @@ public class SimView implements Observer {
 
 	}
 
-	public void printResult() {
+	private void printResult() {
 		System.out.println("RESULTAT");
 		System.out.println("========");
-		System.out.println("1) av " + currentState.getTotalOfCustormers() + " kunder handlade "
-				+ String.valueOf(currentState.getTotalOfCustormers() - currentState.getMissed()) + " medan "
+		System.out.println("1) av " + currentState.getCustomerID().size() + " kunder handlade "
+				+ String.valueOf(currentState.getCustomerID().size() - currentState.getMissed()) + " medan "
 				+ currentState.getMissed() + " missades.");
 		System.out.println("2) Totalt tid " + currentState.getAmOfRegs() + " kassor har varit" + " lediga: "
 				+ String.format("%.2f",currentState.getFreeTimeRegs()) + " te.");
@@ -54,11 +56,19 @@ public class SimView implements Observer {
 				+ "% av tiden från öppning till sista kunden betalat).");
 
 		int totAmQueuedPeeps = currentState.getPeopleInLineTotal();
-		double snittKöTid = currentState.getInLineTime() / totAmQueuedPeeps;
+		double snittKoTid = currentState.getInLineTime() / totAmQueuedPeeps;
 		System.out.println("3) Total tid " + totAmQueuedPeeps + " kunder" + " tvingats köa: "
 				+ String.format("%.2f",currentState.getInLineTime()) + " te.");
-		System.out.print("Genomsnittlig kötid: " + String.format("%.2f",snittKöTid) + " te.");
+		System.out.print("Genomsnittlig kötid: " + String.format("%.2f",snittKoTid) + " te.");
 	}
+
+	/**
+	 *
+	 * Prints out the changes depending on what event that event just changed the state.
+	 *
+	 * @param arg0 observable object
+	 * @param f observer object
+	 */
 
 	@Override
 	public void update(Observable arg0, Object f) {

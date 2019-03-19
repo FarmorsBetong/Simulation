@@ -3,7 +3,7 @@ package Labb5.simulator;
 /**
  *
  * Event is a class that describes what a general event contains.
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 public abstract class Event {
 

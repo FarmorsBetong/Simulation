@@ -4,7 +4,10 @@ import java.util.Observable;
 
 
 /**
- * @authors roblof-8, johlax-8, wesjon-5, jakmor-8
+ *
+ * A general state.
+ *
+ * @author roblof-8, johlax-8, wesjon-5, jakmor-8
  */
 public class State extends Observable {
 
